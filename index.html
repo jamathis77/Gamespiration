@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sketchfab Viewer API example</title>
+
+    <script type="text/javascript"
+          src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+    <link rel="stylesheet" href="./main.css">
+    <!-- Added Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Insert this script for 3d viewer-->
+    <script
+      type="text/javascript"     src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.1.js">
+    </script>
+</head>
+
+<body>
+    <h1 class="h1">Gamespiration</h1>
+    <section class="query-block">
+      <fieldset>
+        <form class="js-search-form" action="#">
+          <label for="query"></label>
+          <input type="text" class="js-query" placeholder="Enter Search Term">
+          <button type="submit">Search</button>
+        </form>
+      </fieldset>
+    </section>
+    <section class="hidden viewer">
+      <div class="hidden models">
+
+      </div>
+        <!-- Insert an empty iframe -->
+      <iframe class="col-md-6" src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+      <!-- Initialize the viewer -->
+    </section>
+    <section class="hidden videos">
+
+    </section>
+
+
+
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
