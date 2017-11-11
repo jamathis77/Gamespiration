@@ -42,9 +42,9 @@ function getDataFromSketchfabApi(searchWord, callback){
 
 function renderSketchfabModels(imageUrl, imageUid, results){
   const sketchfabModelElement = `
-    <div>
-      <a class="modelLink" value="${imageUid}"><img value="${imageUid}" src="${imageUrl}" ></a>
-    </div>
+
+    <a class="modelLink" value="${imageUid}"><img class="modelImage" value="${imageUid}" src="${imageUrl}" ></a>
+
   `;
   $('.models').append(sketchfabModelElement);
   $('.modelLink').on('click', function(event){
@@ -77,13 +77,59 @@ function callbackSketchfab(response){
   });
 }
 
+function getYouTubeApi(searchWord, callback){
+  const settings = {
+    url: 'https://www.googleapis.com/youtube/v3/search',
+    data: {
+      key: 'AIzaSyAQ0OepoUveleF_qPGSeKe8FxumuHc2eHQ',
+      q: `video game ${searchWord}`,
+      part: 'snippet'
+    },
+    dataType: 'json',
+    type: 'GET',
+    success: callback
+  };
+
+  $.ajax(settings)
+}
+
+function renderResult(title, thumbnail, link){
+  const searchElement = `
+    <div class="search-result-block">
+      <h2>
+        ${title}
+      </h2>
+      <a href="https://www.youtube.com/watch?v=${link}">
+        <img src="${thumbnail}" alt="description of thumbnail">
+      </a>
+    </div>
+  `;
+  const hasSearchElement = $('.search-result-block');
+  // if(document.body.contains(hasSearchElement)){
+  //   hasSearchElement.remove();
+  // }
+  $('.videos').append(searchElement);
+}
+
+//callback function, uses the retrieved response data to retrieve the title and thumbnail.
+function callbackYouTubeSearchData(response){
+  console.log(response.items)
+  response.items.forEach(item => {
+    const youTubeName = item.snippet.title;
+    const youTubeThumbnail = item.snippet.thumbnails.default.url;
+    const youTubeLink = item.id.videoId;
+    renderResult(youTubeName, youTubeThumbnail, youTubeLink)
+  })
+}
+
 function watchSubmit(){
   $('.js-search-form').submit(event => {
     event.preventDefault();
     const queryTarget = $(event.currentTarget).find('.js-query');
     const query = queryTarget.val();
     queryTarget.val("");
-    getDataFromSketchfabApi(query, callbackSketchfab)
+    getDataFromSketchfabApi(query, callbackSketchfab);
+    getYouTubeApi(query, callbackYouTubeSearchData);
   })
 }
 

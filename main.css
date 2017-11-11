@@ -1,3 +1,31 @@
 /*.hidden {
   display: none;
 }*/
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.modelImage {
+  height: 100px;
+  width: 100px;
+}
+
+.models {
+  padding-top: 10px;
+  border: 1px solid black;
+  /*display: inline-block;*/
+  height: 150px;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.videos {
+  float: right;
+}
