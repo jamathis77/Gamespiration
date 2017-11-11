@@ -3,8 +3,8 @@ function viewer(urlid){
   var iframe = document.getElementById( 'api-frame' );
   var version = '1.0.0';
   //urlid is the searchterm
-  var urlid = 'be685250dd8f463d8c7d29cdf28b9c05';
-  console.log(typeof urlid)
+  var urlid = urlid;
+  console.log(urlid)
   var client = new Sketchfab( version, iframe );
 
   client.init( urlid, {
@@ -40,31 +40,38 @@ function getDataFromSketchfabApi(searchWord, callback){
   $.ajax(settings)
 }
 
-function renderSketchfabModels(modelLink, modelUid){
+function renderSketchfabModels(imageUrl, imageUid, results){
   const sketchfabModelElement = `
     <div>
-      <a class="modelLink" value="${modelUid}"><img value="${modelUid}" src="${modelLink}" ></a>
+      <a class="modelLink" value="${imageUid}"><img value="${imageUid}" src="${imageUrl}" ></a>
     </div>
   `;
   $('.models').append(sketchfabModelElement);
   $('.modelLink').on('click', function(event){
-    console.log(event.target)
     let uid = event.target;
-    console.log($(this).attr('value'));
-    // let model =
-    viewer($(this).attr('value'))
+    let uidValue = $(uid).attr('value')
+      results.forEach(result => {
+        let clickedModel = result.thumbnails.images[3].uid
+        console.log(`the event target uid is ${uidValue}`);
+        console.log(`clickedModel is ${clickedModel}`)
+        if(uidValue === clickedModel){
+          viewer(result.uid)
+        }
+      })
   })
 }
 
 function callbackSketchfab(response){
+  const results = response.results;
   response.results.forEach(result => {
     const uid = result.thumbnails.images[3]['uid'];
     const url = result.thumbnails.images[3]['url'];
+    // const modelUid = result.uid;
     const models = result.thumbnails.images;
 
     models.forEach(modelLink => {
       if(modelLink.url === url){
-        renderSketchfabModels(url , uid)
+        renderSketchfabModels(url, uid, results)
       }
     })
   });
