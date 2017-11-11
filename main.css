@@ -1,3 +1,7 @@
+body{
+  background: blue;
+}
+
 /*.hidden {
   display: none;
 }*/
@@ -17,6 +21,14 @@
   width: 100px;
 }
 
+.iframe {
+  height: 400px;
+}
+
+.viewer {
+
+}
+
 .models {
   padding-top: 10px;
   border: 1px solid black;
@@ -26,6 +38,14 @@
   white-space: nowrap;
 }
 
+.search-result-block {
+
+}
+
 .videos {
+  border: 1px solid red;
   float: right;
+  height: 550px;
+  overflow-y: auto;
+  white-space: nowrap;
 }

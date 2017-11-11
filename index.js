@@ -96,9 +96,6 @@ function getYouTubeApi(searchWord, callback){
 function renderResult(title, thumbnail, link){
   const searchElement = `
     <div class="search-result-block">
-      <h2>
-        ${title}
-      </h2>
       <a href="https://www.youtube.com/watch?v=${link}">
         <img src="${thumbnail}" alt="description of thumbnail">
       </a>
