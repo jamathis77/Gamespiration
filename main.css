@@ -1,5 +1,12 @@
-body{
-  background: blue;
+.title {
+  font-family: 'Monoton', cursive;
+  font-size: 4em;
+  display: block;
+  text-align: center;
+}
+
+.body {
+  background: #EFEFEF;
 }
 
 /*.hidden {
@@ -29,6 +36,14 @@ body{
 
 }
 
+.js-query {
+  border: 3px solid blue;
+}
+
+.query-block {
+  margin-bottom: 15px;
+}
+
 .models {
   padding-top: 10px;
   border: 1px solid black;
@@ -36,9 +51,21 @@ body{
   height: 150px;
   overflow: auto;
   white-space: nowrap;
+  background: white;
 }
 
 .search-result-block {
+  padding-top: 10px;
+}
+
+.youtubeTitle {
+  overflow: hidden;
+  font-size: 1.2em;
+}
+
+.youtubeImage {
+  width: 100%;
+  height: auto;
 
 }
 
@@ -48,4 +75,5 @@ body{
   height: 550px;
   overflow-y: auto;
   white-space: nowrap;
+  background: white;
 }

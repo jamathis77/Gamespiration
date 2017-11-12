@@ -43,7 +43,7 @@ function getDataFromSketchfabApi(searchWord, callback){
 function renderSketchfabModels(imageUrl, imageUid, results){
   const sketchfabModelElement = `
 
-    <a class="modelLink" value="${imageUid}"><img class="modelImage" value="${imageUid}" src="${imageUrl}" ></a>
+      <a class="modelLink" value="${imageUid}"><img class="modelImage" value="${imageUid}" src="${imageUrl}" ></a>
 
   `;
   $('.models').append(sketchfabModelElement);
@@ -52,8 +52,6 @@ function renderSketchfabModels(imageUrl, imageUid, results){
     let uidValue = $(uid).attr('value')
       results.forEach(result => {
         let clickedModel = result.thumbnails.images[3].uid
-        console.log(`the event target uid is ${uidValue}`);
-        console.log(`clickedModel is ${clickedModel}`)
         if(uidValue === clickedModel){
           viewer(result.uid)
         }
@@ -68,13 +66,13 @@ function callbackSketchfab(response){
     const url = result.thumbnails.images[3]['url'];
     // const modelUid = result.uid;
     const models = result.thumbnails.images;
-
     models.forEach(modelLink => {
       if(modelLink.url === url){
         renderSketchfabModels(url, uid, results)
       }
     })
   });
+  viewer(results[0].uid)
 }
 
 function getYouTubeApi(searchWord, callback){
@@ -97,23 +95,26 @@ function renderResult(title, thumbnail, link){
   const searchElement = `
     <div class="search-result-block">
       <a href="https://www.youtube.com/watch?v=${link}">
-        <img src="${thumbnail}" alt="description of thumbnail">
+        <img class="youtubeImage" src="${thumbnail}" alt="description of thumbnail">
       </a>
+      <p class="youtubeTitle">${title}</p>
     </div>
   `;
-  const hasSearchElement = $('.search-result-block');
+
   // if(document.body.contains(hasSearchElement)){
   //   hasSearchElement.remove();
+  // }
+  // if($('.videos').length){
+  //   hasSearchElement.remove()
   // }
   $('.videos').append(searchElement);
 }
 
-//callback function, uses the retrieved response data to retrieve the title and thumbnail.
+//callback function for YouTube API
 function callbackYouTubeSearchData(response){
-  console.log(response.items)
   response.items.forEach(item => {
     const youTubeName = item.snippet.title;
-    const youTubeThumbnail = item.snippet.thumbnails.default.url;
+    const youTubeThumbnail = item.snippet.thumbnails.medium.url;
     const youTubeLink = item.id.videoId;
     renderResult(youTubeName, youTubeThumbnail, youTubeLink)
   })
@@ -125,8 +126,17 @@ function watchSubmit(){
     const queryTarget = $(event.currentTarget).find('.js-query');
     const query = queryTarget.val();
     queryTarget.val("");
+    const hasSearchElement = $('.search-result-block');
+    const hasModelLink = $('.modelLink');
+    if($('.videos').length){
+      hasSearchElement.remove();
+    }
+    if($('.models').length){
+      hasModelLink.remove();
+    }
     getDataFromSketchfabApi(query, callbackSketchfab);
     getYouTubeApi(query, callbackYouTubeSearchData);
+
   })
 }
 
