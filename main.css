@@ -30,10 +30,6 @@
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
-/*.container-fluid{
-  margin-bottom: 4%;
-}*/
-
 .row {
   width: 100%;
 }
@@ -91,7 +87,6 @@
 }
 
 .js-query {
-  /*border: 3px solid #1F6BD2;*/
   width: 33%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(148, 0, 211, 0.19);
 }
@@ -120,5 +115,4 @@
   white-space: nowrap;
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-  /*margin-right: 2%;*/
 }

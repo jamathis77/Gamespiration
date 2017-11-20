@@ -1,5 +1,3 @@
-
-
 //This creates the 3D model viewer. The urlid controls which model is in the viewer
 function viewer(urlid){
   var iframe = document.getElementById( 'api-frame' );
@@ -137,43 +135,6 @@ function callbackYouTubeSearchData(response){
   })
 }
 
-// function getSliderSettings(){
-//   return {
-//     dots: true,
-//     infinite: true,
-//     speed: 300,
-//     slidesToShow: 1,
-//     centerMode: true,
-//     variableWidth: true
-//   }
-// }
-
-// $.ajax({
-//   type: 'get',
-//   url: '/public/index',
-//   dataType: 'script',
-//   data: data_send,
-//   success: function() {
-//     $('.models').slick('unslick'); /* ONLY remove the classes and handlers added on initialize */
-//     // $('.my-slide').remove(); /* Remove current slides elements, in case that you want to show new slides. */
-//     $('.models').slick(getSliderSettings()); /* Initialize the slick again */
-//   }
-// });
-
-// function addSlick(){
-//   console.log('slick has run')
-//
-//     $('.models').slick({
-//       dots: true,
-//       infinite: true,
-//       speed: 300,
-//       slidesToShow: 1,
-//       centerMode: true,
-//       variableWidth: true
-//
-//   });
-// }
-
 function watchSubmit(){
 
   $('.js-search-form').submit(event => {
@@ -195,7 +156,6 @@ function watchSubmit(){
       hasModelLink.remove();
     }
     counter++;
-    // $('.slider').slick('unslick');
     getDataFromSketchfabApi(query, callbackSketchfab);
     getYouTubeApi(query, callbackYouTubeSearchData);
 
