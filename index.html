@@ -12,6 +12,10 @@
 
     <!-- Added Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Added Slick -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
     <!-- Insert this script for 3d viewer-->
     <script
       type="text/javascript"     src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.1.js">
@@ -30,25 +34,62 @@
           </form>
         </fieldset>
       </section>
-      <section class="hidden videos col-md-3">
+      <section class="container-fluid">
+        <section class="row">
+          <!-- Adds section for 3d model viewer -->
+          <section class="col-md-8 col-lg-8">
+            <!-- Insert an empty iframe -->
+            <section class="hidden iframe-block">
 
+              <iframe class="iframe" src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+            </section>
+          </section>
+          <!-- adds section for models and video -->
+          <section class="col-md-4 col-lg-4 col-model-video">
+            <!-- Insert section for model carousel -->
+            <section class="row model-carousel-row">
+              <section class="hidden viewer">
+                <div class="models">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                      <!-- appended models are added here -->
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </section>
+            <!-- insert youtube videos -->
+            <section class="row video-carousel-row">
+              <section class="hidden videos">
+
+              </section>
+            </section>
+
+          </section>
       </section>
-      <section class="hidden viewer">
-        <div class="hidden models col-md-8">
-
-        </div>
-
-          <!-- Insert an empty iframe -->
-        <iframe class="iframe col-md-8" src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
-        <!-- Initialize the viewer -->
-      </section>
-
+    </section>
   </main>
 
 
     <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
 </body>
 </html>

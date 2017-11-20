@@ -1,17 +1,24 @@
 .title {
   font-family: 'Monoton', cursive;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
   font-size: 4em;
   display: block;
   text-align: center;
 }
 
 .body {
-  background: #EFEFEF;
+  background-image: url("tank_ghost.jpeg");
+  background-size: cover;
+  background-repeat: repeat;
 }
 
-/*.hidden {
+.hidden {
   display: none;
-}*/
+}
+
+.js-search-form {
+  text-align: center;
+}
 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -23,35 +30,74 @@
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 
-.modelImage {
-  height: 100px;
-  width: 100px;
+/*.container-fluid{
+  margin-bottom: 4%;
+}*/
+
+.row {
+  width: 100%;
+}
+
+.col-model-video {
+  height: 600px;
+  width: 100%;
 }
 
 .iframe {
-  height: 400px;
+  height: 600px;
+  width: 100%;
+}
+
+.model-carousel-row{
+  height: 50%;
+}
+
+.video-carousel-row{
+  height: 50%;
+  margin: 2%;
+}
+
+.models {
+  height: 100%;
+}
+
+.slide{
+  height: 100%;
+  width:100%;
+}
+
+.carousel-inner{
+  height: 100%;
+}
+
+.carousel-item{
+  height: 100%;
+  width: 100%;
 }
 
 .viewer {
+  height: 100%;
+  width: 100%;
+}
 
+.d-block {
+  height: 100%;
+  width: 100%;
+}
+
+.iframe-block {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  height: 100%;
 }
 
 .js-query {
-  border: 3px solid blue;
+  /*border: 3px solid #1F6BD2;*/
+  width: 33%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(148, 0, 211, 0.19);
 }
 
 .query-block {
   margin-bottom: 15px;
-}
-
-.models {
-  padding-top: 10px;
-  border: 1px solid black;
-  /*display: inline-block;*/
-  height: 150px;
-  overflow: auto;
-  white-space: nowrap;
-  background: white;
 }
 
 .search-result-block {
@@ -66,14 +112,13 @@
 .youtubeImage {
   width: 100%;
   height: auto;
-
 }
 
 .videos {
-  border: 1px solid red;
-  float: right;
-  height: 550px;
-  overflow-y: auto;
+  height: 100%;
+  overflow-x: auto;
   white-space: nowrap;
   background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  /*margin-right: 2%;*/
 }
