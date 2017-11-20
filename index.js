@@ -20,7 +20,7 @@ function viewer(urlid){
       error: function onError() {
           console.log( 'Viewer error' );
       }
-  } );
+  });
 }
 
 //ajax call to sketchfab for the 3d model.
@@ -35,7 +35,6 @@ function getDataFromSketchfabApi(searchWord, callback){
     type: 'GET',
     success: callback
   }
-
   $.ajax(settings)
 }
 //callback function for sketchfab ajax
@@ -52,16 +51,11 @@ function callbackSketchfab(response){
       if(modelLink.url === url){
         counter++;
         renderSketchfabModels(url, uid, results, counter)
-
       }
     })
-
   });
   //sends the first model to the viewer when a search is executed
-
   viewer(results[0].uid)
-
-
 }
 
 function renderSketchfabModels(imageUrl, imageUid, results, counter){
@@ -76,7 +70,7 @@ function renderSketchfabModels(imageUrl, imageUid, results, counter){
     <a class="modelLink" value="${imageUid}"><img class="d-block modelImage" value="${imageUid}" src="${imageUrl}" ></a>
   </div>
   `;
-  console.log(`counter is ${counter}`)
+
   if(counter === 1){
     $('.carousel-inner').append(sketchfabModelElementActive);
   }else{
@@ -85,7 +79,6 @@ function renderSketchfabModels(imageUrl, imageUid, results, counter){
 
   // Adds ability to change model by clicking
   $('.modelLink').on('click', function(event){
-    console.log('clicked');
     let uid = event.target;
     let uidValue = $(uid).attr('value')
       results.forEach(result => {
@@ -95,7 +88,7 @@ function renderSketchfabModels(imageUrl, imageUid, results, counter){
         }
       })
   })
-}
+};
 
 function getYouTubeApi(searchWord, callback){
   const settings = {
@@ -109,9 +102,8 @@ function getYouTubeApi(searchWord, callback){
     type: 'GET',
     success: callback
   };
-
   $.ajax(settings)
-}
+};
 
 function renderResult(title, thumbnail, link){
   const searchElement = `
@@ -123,7 +115,7 @@ function renderResult(title, thumbnail, link){
     </div>
   `;
   $('.videos').append(searchElement);
-}
+};
 
 //callback function for YouTube API
 function callbackYouTubeSearchData(response){
@@ -133,10 +125,9 @@ function callbackYouTubeSearchData(response){
     const youTubeLink = item.id.videoId;
     renderResult(youTubeName, youTubeThumbnail, youTubeLink)
   })
-}
+};
 
 function watchSubmit(){
-
   $('.js-search-form').submit(event => {
     let counter = 0;
     event.preventDefault();
@@ -158,8 +149,7 @@ function watchSubmit(){
     counter++;
     getDataFromSketchfabApi(query, callbackSketchfab);
     getYouTubeApi(query, callbackYouTubeSearchData);
-
   })
-}
+};
 
 $(watchSubmit);
