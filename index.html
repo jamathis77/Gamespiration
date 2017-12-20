@@ -7,12 +7,12 @@
           src="https://code.jquery.com/jquery-3.2.1.min.js">
     </script>
 
-    <link rel="stylesheet" href="./main.css">
+
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 
     <!-- Added Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./main.css">
     <!-- Insert this script for 3d viewer-->
     <script
       type="text/javascript"     src="https://static.sketchfab.com/api/sketchfab-viewer-1.0.1.js">
@@ -23,6 +23,7 @@
   <main class="main">
     <h2 class="title">Gamespiration</h2>
       <!-- Add form for search word -->
+
       <section class="query-block">
         <fieldset>
           <form class="js-search-form" action="#">
@@ -32,11 +33,12 @@
           </form>
         </fieldset>
       </section>
+      <p class='explanation'>Hello and welcome to Gamespiration! The site designed to inspire you in your gamemaking endevors. Simply type in a word that you would want to see in a game and we will show you some models that could be used in your game and videos of games that have used that keyword!</p>
       <!-- Add bootstrap container -->
       <section class="container-fluid">
         <section class="row">
           <!-- Adds section for 3d model viewer -->
-          <section class="col-md-8 col-lg-8">
+          <section class="col-lg-8">
             <!-- Insert an empty iframe -->
             <section class="hidden iframe-block">
 
@@ -45,7 +47,7 @@
             </section>
           </section>
           <!-- adds section for models and video -->
-          <section class="col-md-4 col-lg-4 col-model-video">
+          <section class="col-lg-4 col-model-video">
             <!-- Insert section for model carousel -->
             <section class="row model-carousel-row">
               <section class="hidden viewer">

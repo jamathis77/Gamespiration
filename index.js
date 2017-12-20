@@ -108,13 +108,17 @@ function getYouTubeApi(searchWord, callback){
 function renderResult(title, thumbnail, link){
   const searchElement = `
     <div class="search-result-block">
-      <a href="https://www.youtube.com/watch?v=${link}">
+      <a target=“_blank” class="youTubeWinPop" href="https://www.youtube.com/watch?v=${link}">
         <img class="youtubeImage" src="${thumbnail}" alt="description of thumbnail">
+        <p class="youtubeTitle">${title}</p>
       </a>
-      <p class="youtubeTitle">${title}</p>
+
     </div>
   `;
   $('.videos').append(searchElement);
+  // $('.youTubeWinPop').on('click', function(){
+  //   window.open(`https://www.youtube.com/watch?v=${link}`);
+  // })
 };
 
 //callback function for YouTube API
@@ -136,9 +140,10 @@ function watchSubmit(){
     queryTarget.val("");
     const hasSearchElement = $('.search-result-block');
     const hasModelLink = $('.modelLink');
+    $("p").addClass("hidden");
     if(counter === 0){
-      $("section").removeClass("hidden")
-      $("iframe").removeClass("hidden")
+      $("section").removeClass("hidden");
+      $("iframe").removeClass("hidden");
     }
     if($('.videos').length){
       hasSearchElement.remove();

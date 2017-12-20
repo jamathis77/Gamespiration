@@ -12,6 +12,16 @@
   background-repeat: repeat;
 }
 
+.explanation {
+  /*font-family: 'Monoton', cursive;*/
+  color: white;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  font-size: 1.5em;
+  margin-left: 3em;
+  margin-right: 3em;
+
+}
+
 .hidden {
   display: none;
 }
@@ -33,6 +43,8 @@
 
 .row {
   width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .col-model-video {
@@ -51,7 +63,7 @@
 
 .video-carousel-row{
   height: 50%;
-  margin: 2%;
+  /*margin: 2%;*/
 }
 
 .models {
@@ -103,6 +115,9 @@
 .youtubeTitle {
   overflow: hidden;
   font-size: 1.2em;
+  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .youtubeImage {
@@ -116,4 +131,13 @@
   white-space: nowrap;
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 780px){
+  section {
+    flex: 100%;
+    max-width: 100%;
+    margin: auto;
+
+  }
 }
